@@ -14,7 +14,6 @@ import java.util.List;
 
 public class UserMapper {
     
-   
     
     public static User login( String email, String password ) throws LegoHouseException {
         try {

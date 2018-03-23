@@ -15,8 +15,8 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="col-md-6">
             <div class="row">
+            <div class="col-md-6">
                <h1>Lego-Housing! </h1>
             <h5> Login or Register to proceed! </h5>
             <br>
