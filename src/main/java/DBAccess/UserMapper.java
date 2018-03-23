@@ -35,7 +35,7 @@ public class UserMapper {
                 throw new LegoHouseException( "Could not validate user", "index");
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegoHouseException(ex.getMessage(), "index");
+            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
     }
     
@@ -53,7 +53,7 @@ public class UserMapper {
             int id = ids.getInt( 1 );
             user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LegoHouseException( ex.getMessage(), "index" );
+            throw new LegoHouseException( "The world is falling, please contact IT-SUPPORT!", "index" );
         }
     }
     
@@ -74,7 +74,7 @@ public class UserMapper {
             o = new Order(id, userID, length, width, height, false);
           
         }catch(SQLException | ClassNotFoundException ex){
-            throw new LegoHouseException(ex.getMessage(), "customerpage");
+            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
         return o;
     }
@@ -100,7 +100,7 @@ public class UserMapper {
                 temp.add(o);
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegoHouseException(ex.getMessage(), "customerpage");
+            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
         return temp;
     }
@@ -124,7 +124,7 @@ public class UserMapper {
                  o = new Order(orderid, userid, length, width, height, status);
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegoHouseException(ex.getMessage(), "customerpage");
+            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
         return o;
     }
@@ -147,7 +147,7 @@ public class UserMapper {
                 temp.add(o);
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegoHouseException(ex.getMessage(), "employeepage");
+            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
         return temp;
     }
@@ -160,7 +160,7 @@ public class UserMapper {
             ps.setInt(1, orderID);
             ps.executeUpdate();
         } catch (ClassNotFoundException | SQLException ex) {
-           throw new LegoHouseException("Send Order failed, try again!", "employeepage");
+           throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
         }
     }
     
