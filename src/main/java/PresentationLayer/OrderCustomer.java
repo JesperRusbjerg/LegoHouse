@@ -33,6 +33,15 @@ public class OrderCustomer extends Command {
                 request.getSession().removeAttribute("height");
             }
             
+            String length1 = request.getParameter("length");
+            String width1 = request.getParameter("width");
+            String height1 = request.getParameter("height");
+            
+            if(length1.isEmpty() || width1.isEmpty() || height1.isEmpty()){
+            throw new LegoHouseException("Wrong input!", "customerpage");
+        }
+            
+            
             int length = Integer.parseInt(request.getParameter("length"));
             int width = Integer.parseInt(request.getParameter("width"));
             int height = Integer.parseInt(request.getParameter("height"));
