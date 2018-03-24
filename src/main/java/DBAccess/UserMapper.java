@@ -12,8 +12,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is responsible for accessing the database.
+ * There are various methods for retrieving data from the tables in the database.
+ * @author Jesper
+ */
+
+
 public class UserMapper {
     
+    /**
+     * 
+     * @param email not null
+     * @param password not null
+     * @return user object, will be used in session, will throw expcetion if not found in DB.
+     * @throws LegoHouseException throws Exception if there is no connection to DB.
+     */
     
     public static User login( String email, String password ) throws LegoHouseException {
         try {
@@ -38,6 +52,12 @@ public class UserMapper {
         }
     }
     
+    /**
+     * Register any user into the DB, currently u can register multiple users with same username.
+     * @param user Takes in a paramater User, created in the LogicFacade.
+     * @throws LegoHouseException throws Exception if there is no connection to DB.
+     */
+    
     public static void createUser( User user ) throws LegoHouseException {
         try {
             Connection con = Connector.connection();
@@ -55,6 +75,17 @@ public class UserMapper {
             throw new LegoHouseException( "The world is falling, please contact IT-SUPPORT!", "index" );
         }
     }
+    
+    /**
+     * Creates order and inserts it into DB.
+     * @param userID not null.
+     * @param length not null.
+     * @param width not null.
+     * @param height not null.
+     * @return returns an order that can be displayed to the user.
+     * @throws LegoHouseException throws Exception if there is no connection to DB.
+     */
+     
     
     public static Order createOrder(int userID, int length, int width, int height) throws LegoHouseException {
         Order o = null;
@@ -78,7 +109,12 @@ public class UserMapper {
         return o;
     }
     
-    
+    /**
+     * Shows a list of all userOrders.
+     * @param userID not null
+     * @return returns a list of all userOrders.
+     * @throws LegoHouseException  throws Exception if there is no connection to DB.
+     */
     
      public static List<Order> userOrders(int userID) throws LegoHouseException {
        List<Order> temp = new ArrayList();
@@ -104,6 +140,13 @@ public class UserMapper {
         return temp;
     }
      
+     /**
+      * Shows details of selected order.
+      * @param orderID not null.
+      * @return returns a specific order object.
+      * @throws LegoHouseException throws Exception if there is no connection to DB. 
+      */
+     
     public static Order orderDetail(int orderID) throws LegoHouseException {
        Order o = null;
          try {
@@ -127,6 +170,12 @@ public class UserMapper {
         }
         return o;
     }
+    
+    /**
+     * returns list of all orders for employee to send orders.
+     * @return returns list of all orders for employee to send orders.
+     * @throws LegoHouseException throws Exception if there is no connection to DB. 
+     */
      
     public static List<Order> allOrders() throws LegoHouseException {
        List<Order> temp = new ArrayList();
@@ -150,6 +199,12 @@ public class UserMapper {
         }
         return temp;
     }
+    
+    /**
+     * Makes it possible for employee to send order.
+     * @param orderID not null.
+     * @throws LegoHouseException throws Exception if there is no connection to DB. 
+     */
     
      public static void sendOrder(int orderID) throws LegoHouseException{
         try {

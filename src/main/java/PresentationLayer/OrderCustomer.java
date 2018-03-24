@@ -50,7 +50,7 @@ public class OrderCustomer extends Command {
             request.getSession().setAttribute("height", height);
             
             if (length < 10 || length > 100 || width < 8 || width >= 50 || height < 4 || height >=50){
-               throw new LegoHouseException("Wrong input!", "customerpage");
+               throw new LegoHouseException("Wrong input! Height must be 10 - 100, width 8 - 50, height 4 - 50", "customerpage");
             }
             
                     House h = LogicFacade.Calculator(length, width, height);

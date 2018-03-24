@@ -2,7 +2,7 @@ package FunctionLayer;
 
 /**
  * The purpose of LoginSampleException is to...
- * @author kasper
+ * @author jesper
  */
 public class LegoHouseException extends Exception {
 
