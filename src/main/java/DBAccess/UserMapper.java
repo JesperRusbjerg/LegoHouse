@@ -48,7 +48,7 @@ public class UserMapper {
                 throw new LegoHouseException( "Could not validate user", "index");
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
-            throw new LegoHouseException("The world is falling, please contact IT-SUPPORT!", "index");
+            throw new LegoHouseException(ex.getMessage(), "index");
         }
     }
     
@@ -72,7 +72,7 @@ public class UserMapper {
             int id = ids.getInt( 1 );
             user.setId( id );
         } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LegoHouseException( "The world is falling, please contact IT-SUPPORT!", "index" );
+            throw new LegoHouseException( ex.getMessage(), "index" );
         }
     }
     
